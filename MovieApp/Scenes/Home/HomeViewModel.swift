@@ -28,6 +28,7 @@ class HomeViewModel {
     
     var reloadDataClosure: ReloadDataClosure?
     var showIndicator: BoolClosure?
+    var failClosure: StringClosure?
     
     var eventType: EventType = .first
     
@@ -141,7 +142,7 @@ class HomeViewModel {
                 
             case .failure(let error):
                 showIndicator?(false)
-                print(error.localizedDescription)
+                failClosure?(error.localizedDescription)
             }
         }
     }

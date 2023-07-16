@@ -40,4 +40,13 @@ class BaseViewController: UIViewController {
             self.loadingBlockView.removeFromSuperview()
         })
     }
+    
+    func presentErrorAlert(errorMessage: String) {
+        let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }

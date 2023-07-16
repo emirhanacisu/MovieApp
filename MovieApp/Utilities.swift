@@ -9,6 +9,7 @@ import Foundation
 
 typealias VoidClosure = (() -> ())
 typealias BoolClosure = ((Bool) -> ())
+typealias StringClosure = ((String) -> ())
 typealias ReloadDataClosure = ((ReloadDataType) -> ())
 
 enum ReloadDataType {

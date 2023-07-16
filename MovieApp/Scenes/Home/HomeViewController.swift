@@ -67,6 +67,10 @@ class HomeViewController: BaseViewController {
         viewModel.showIndicator = { isShow in
             isShow ? self.showLoading() : self.hideLoading()
         }
+        
+        viewModel.failClosure = { [weak self] errorMessage in
+            self?.presentErrorAlert(errorMessage: errorMessage)
+        }
     }
     
     private func setupViews() {
