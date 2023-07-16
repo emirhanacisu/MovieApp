@@ -15,8 +15,8 @@ class Network {
     func performRequest<T: Codable>(request: URLRequest, completion: @escaping (Result<T, Error>)->Void) {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            if error != nil {
-                print("hata")
+            if let error = error {
+                completion(.failure(error))
                 return
             }
             do {
@@ -27,7 +27,7 @@ class Network {
                 }
             }
             catch {
-                print("error")
+                completion(.failure(error))
             }
         }.resume()
     }
